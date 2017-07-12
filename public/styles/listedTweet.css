@@ -1,6 +1,9 @@
+article:hover{
+  border: solid black 1px;
+}
 article {
   border-radius: 15px;
-  border: 1px solid gray;
+  border:solid lightgray 1px;
   margin : 0 auto;
   margin-top: 2em;
   margin-right: 2em;
@@ -30,7 +33,7 @@ p.userMessage{
   font-size: 25px;
   padding: 15px;
 }
-footer{
+article footer{
   border-top: solid lightgray 1px;
   padding : 5px 10px;
 }
@@ -39,4 +42,12 @@ header img{
   margin-left:10px;
   height: 80px;
   width: 80px;
+}
+.icons{
+  display:none;
+  float:right;
+}
+
+article:hover .icons{
+  display:inline-block;
 }

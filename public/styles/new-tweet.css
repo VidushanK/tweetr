@@ -1,7 +1,7 @@
 .new-tweet {
 background:#eee;
 border-radius: 15px;
-border: 1px solid gray;
+border: solid lightgray 1px;
 margin : 0 auto;
 margin-right: 2em;
 margin-left: 2em;
@@ -21,8 +21,4 @@ form textarea {
   width: 365px;
   padding: 0.4em;
   margin-bottom: 0.5em;
-}
-header img{
-  height: 80px;
-  width: 80px;
 }
