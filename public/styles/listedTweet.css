@@ -1,0 +1,42 @@
+article {
+  border-radius: 15px;
+  border: 1px solid gray;
+  margin : 0 auto;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+header.tweet-header{
+border-radius: 15px 15px 0 0;
+background:#eee;
+display:flex;
+justify-content: space-between;
+
+}
+span.profile{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  padding-top: 10px;
+  margin-right: 90px;
+}
+span.atName{
+  float: right;
+  padding-top: 23px;
+  padding-right: 10px;
+}
+p.userMessage{
+  height:60px;
+  font-size: 25px;
+  padding: 15px;
+}
+footer{
+  border-top: solid lightgray 1px;
+  padding : 5px 10px;
+}
+
+header img{
+  margin-left:10px;
+  height: 80px;
+  width: 80px;
+}

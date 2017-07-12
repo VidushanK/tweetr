@@ -22,3 +22,7 @@ form textarea {
   padding: 0.4em;
   margin-bottom: 0.5em;
 }
+header img{
+  height: 80px;
+  width: 80px;
+}
