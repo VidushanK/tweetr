@@ -1,6 +1,9 @@
 article:hover{
   border: solid black 1px;
 }
+article:hover .icons{
+  display:inline-block;
+}
 article {
   border-radius: 15px;
   border:solid lightgray 1px;
@@ -33,7 +36,7 @@ p.userMessage{
   font-size: 25px;
   padding: 15px;
 }
-article footer{
+footer.tweet-footer{
   border-top: solid lightgray 1px;
   padding : 5px 10px;
 }
@@ -46,8 +49,4 @@ header img{
 .icons{
   display:none;
   float:right;
-}
-
-article:hover .icons{
-  display:inline-block;
 }
