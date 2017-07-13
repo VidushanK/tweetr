@@ -6,6 +6,7 @@ $(document).ready(function () {
       textcolor.css({
         'color': 'red'
       });
+      alert("Your post must be less than 140 characters!!");
     } else {
       textcolor.css({
         'color' : 'black'

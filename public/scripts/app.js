@@ -3,44 +3,36 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 $(document).ready(function() {
 
   function createTweetElement(tweetData){
     var $tweet = $("<article>");
+
     //headers
-    var $header = $("<header>").addClass("tweet-header");
-    $tweet.append($header);
-    var $img = $("<img>").attr('src', tweetData.user.avatars.small);
-    $header.append($img);
-    var $profile = $("<span>").addClass("profile").text(tweetData.user.name);
-    $header.append($profile);
-    var $handler = $("<span>").addClass("atName").text(tweetData.user.handle);
-    $header.append($handler);
+    var $header = $("<header>").addClass("tweet-header").appendTo($tweet);
+    var $img = $("<img>").attr('src', tweetData.user.avatars.small).appendTo($header);
+    var $profile = $("<span>").addClass("profile").text(tweetData.user.name).appendTo($header);
+    var $handler = $("<span>").addClass("atName").text(tweetData.user.handle).appendTo($header);
 
     //body
-    var $text = $("<p>").addClass("userMessage").text(tweetData.content.text);
-    $tweet.append($text);
+    var $text = $("<p>").addClass("userMessage").text(tweetData.content.text).appendTo($tweet);
 
     //footer
-    var $footer = $("<footer>").addClass("tweet-footer");
-    $tweet.append($footer);
+    var $footer = $("<footer>").addClass("tweet-footer").appendTo($tweet);
     var $date = $("<span>").addClass("date").text(tweetData.created_at);
-    var relDate = moment($date).fromNow();
-    $footer.append(relData);
-    var $icon = $("<span>").addClass("icons");
-    $footer.append($icon);
-
+    var relDate = moment(tweetData.created_at).fromNow();
+    $footer.append(relDate);
     // footer icons
-    var $retweet = $("<i>").addClass("fa fa-retweet").attr('aria-hidden', 'true')
-    $icon.append($retweet);
-    var $heart = $("<i>").addClass("fa fa-heart").attr('aria-hidden', 'true')
-    $icon.append($heart)
-    var $flag = $("<i>").addClass("fa fa-flag").attr('aria-hidden', 'true')
-    $icon.append($flag)
+    var $icon = $("<span>").addClass("icons").appendTo($footer);
+    var $retweet = $("<i>").addClass("fa fa-retweet").attr('aria-hidden', 'true').appendTo($icon);
+    var $heart = $("<i>").addClass("fa fa-heart").attr('aria-hidden', 'true').appendTo($icon);
+    var $flag = $("<i>").addClass("fa fa-flag").attr('aria-hidden', 'true').appendTo($icon);
 
     return $tweet;
   };
 
+// render the tweets, delete all the msgs, then for each loop add all the tweets
   function renderTweets(tweets) {
     $('.tweets-container').empty();
     tweets.forEach((tweetData) => {
@@ -49,6 +41,7 @@ $(document).ready(function() {
     });
   }
 
+// use the tweet users information to post a new message
   $( "form" ).on( "submit", function( event ) {
     event.preventDefault();
     const $form = $( this );
@@ -58,21 +51,15 @@ $(document).ready(function() {
       data: $form.serialize()
     })
     .done((tweets) => {
-      console.log('tweets:',tweets);
-
       renderTweets(tweets);
     });
-
   });
-
-
+// ajax get method to get tweet users
   $.ajax({
     url: 'http://localhost:8080/tweets',
     method: 'GET'
   })
   .done((tweets) => {
-    console.log('tweets:',tweets);
     renderTweets(tweets);
   });
-
 })
