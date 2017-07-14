@@ -39,15 +39,17 @@ $(function() {
     return $.ajax({url: url, method: method, data: data})
   }
 
+  // gets user tweets from backend,
   function getTweetsAjax() {
     return request('/tweets', 'GET');
   }
 
+  // sends tweets to backend, reusable function; so I won't reuse Ajax
   function saveTweetAjax(tweetData){
     return request('/tweets', 'POST', tweetData);
   }
 
-// render the tweets, delete all the msgs, then for each loop add all the tweets
+  // render the tweets, delete all the msgs, then for each loop add all the tweets
   function renderTweets(tweets) {
     $('.tweets-container').empty();
     tweets.forEach((tweetData) => {
@@ -56,7 +58,7 @@ $(function() {
     });
   }
 
-// use the tweet users information to post a new message
+  // use the tweet users information to post a new message
   $( "form" ).on( "submit", function( event ) {
     event.preventDefault();
     const $form = $( this );
