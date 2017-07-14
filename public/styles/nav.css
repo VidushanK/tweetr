@@ -31,7 +31,6 @@ nav {
   background: #06ddb9;
 }
 #nav-bar button:hover{
-  background: gray;
-  background: #06ddb9;
+  background: #70d8c5;
   border: solid black 1px;
 }

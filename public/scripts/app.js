@@ -18,7 +18,6 @@ $(function() {
     //body
     var $text = $("<p>").addClass("userMessage").text(tweetData.content.text).appendTo($tweet);
 
-
     //footer
     var $footer = $("<footer>").addClass("tweet-footer").appendTo($tweet);
     var $date = $("<span>").addClass("date").text(tweetData.created_at);
@@ -60,6 +59,8 @@ $(function() {
   // once you click the compose button, it will show new tweet
   $( "button" ).click(function() {
     $( ".new-tweet" ).slideToggle( "slow" );
+    $( "textarea" ).focus();
+    $( "textarea" ).click();
   });
 
   // use the tweet users information to post a new message
