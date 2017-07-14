@@ -15,3 +15,13 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser
+- Chance
+- Mongodb
+- md5
+- MomentJS
+
+## Screenshots
+![Screenshot of default homepage for Tweetr](https://github.com/VidushanK/tweetr/blob/master/docs/TweetrDefaultHomePage.png)
+![Screenshot of Compose with text in it](https://github.com/VidushanK/tweetr/blob/master/docs/TweetrTextArea.png)
+![Screenshot of Compose textarea containing more than 140 characters](https://github.com/VidushanK/tweetr/blob/master/docs/TweetrOver140Char.png)
