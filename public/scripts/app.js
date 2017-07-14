@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function() {
+$(function() {
 
   function createTweetElement(tweetData){
     var $tweet = $("<article>");
@@ -17,6 +17,7 @@ $(document).ready(function() {
 
     //body
     var $text = $("<p>").addClass("userMessage").text(tweetData.content.text).appendTo($tweet);
+
 
     //footer
     var $footer = $("<footer>").addClass("tweet-footer").appendTo($tweet);
@@ -32,6 +33,22 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  function getTweetsAjax() {
+    // ajax get method to get tweet users
+    return $.ajax({
+      url: '/tweets',
+      method: 'GET'
+    });
+  }
+
+  function saveTweetAjax(tweetData){
+    return $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: tweetData
+    });
+  }
+
 // render the tweets, delete all the msgs, then for each loop add all the tweets
   function renderTweets(tweets) {
     $('.tweets-container').empty();
@@ -45,21 +62,15 @@ $(document).ready(function() {
   $( "form" ).on( "submit", function( event ) {
     event.preventDefault();
     const $form = $( this );
-    $.ajax({
-      url: 'http://localhost:8080/tweets',
-      method: 'POST',
-      data: $form.serialize()
-    })
-    .done((tweets) => {
-      renderTweets(tweets);
-    });
+    var tweetLength = $form.find('textarea').val().length;
+
+    // tweet length must be within 140 but never empty
+    // since we dont want to send empty tweets to server
+    if (tweetLength > 140 || tweetLength === 0) { return false }
+    var tweetData = $form.serialize();
+    saveTweetAjax(tweetData).done(renderTweets);
   });
-// ajax get method to get tweet users
-  $.ajax({
-    url: 'http://localhost:8080/tweets',
-    method: 'GET'
-  })
-  .done((tweets) => {
-    renderTweets(tweets);
-  });
+
+  // on initial page load get me all tweets from server via ajax
+  getTweetsAjax().done(renderTweets);
 })
