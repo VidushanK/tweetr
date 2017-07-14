@@ -3,12 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
+// refactored document.ready() to $(funciton()){}
 $(function() {
-
+  // this function creates the tweet element markup
   function createTweetElement(tweetData){
     var $tweet = $("<article>");
-
     //headers
     var $header = $("<header>").addClass("tweet-header").appendTo($tweet);
     var $img = $("<img>").attr('src', tweetData.user.avatars.small).appendTo($header);
@@ -31,9 +30,7 @@ $(function() {
 
     return $tweet;
   };
-
-  // why keep spelling out ajax, im lazy
-  // also what happens when i dont use jquery at some point
+  // this is a wrapper around ajax method
   function request(url, method, data={}) {
     return $.ajax({url: url, method: method, data: data})
   }
@@ -57,7 +54,7 @@ $(function() {
     });
   }
   // once you click the compose button, it will show new tweet
-  $( "button" ).click(function() {
+    $( "button" ).click(function() {
     $( ".new-tweet" ).slideToggle( "slow" );
     $( "textarea" ).focus();
     $( "textarea" ).click();

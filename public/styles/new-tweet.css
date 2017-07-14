@@ -9,12 +9,13 @@
   height: 170px;
   padding:10px;
   display:none;
-
 }
+
 h2 {
   margin: 0 0 1em;
   border-bottom: 1px solid black;
 }
+
 span.counter{
   float: right;
 }

@@ -1,4 +1,7 @@
-$(document).ready(function () {
+// this fuction checks if the textarea has more than 140 characters
+// if the user types more than 140 characters the font of span will change to red
+// if characters > 140 there will be a error message beside the sumbit button
+$(function() {
   $("textarea").keyup(function(event) {
     var textlength = $(this).val().length
     let counterVal =  $('.counter').text(140 - textlength);
@@ -6,7 +9,7 @@ $(document).ready(function () {
       counterVal.css({
         'color': 'red'
       });
-      $(".errMsg").text("error : you must enter less than 140 characters!! ")
+      $(".errMsg").text("You must enter less than 140 characters!! ")
     }  else {
       counterVal.css({
         'color' : 'black'
