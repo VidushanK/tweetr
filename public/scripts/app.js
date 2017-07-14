@@ -33,20 +33,18 @@ $(function() {
     return $tweet;
   };
 
+  // why keep spelling out ajax, im lazy
+  // also what happens when i dont use jquery at some point
+  function request(url, method, data={}) {
+    return $.ajax({url: url, method: method, data: data})
+  }
+
   function getTweetsAjax() {
-    // ajax get method to get tweet users
-    return $.ajax({
-      url: '/tweets',
-      method: 'GET'
-    });
+    return request('/tweets', 'GET');
   }
 
   function saveTweetAjax(tweetData){
-    return $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: tweetData
-    });
+    return request('/tweets', 'POST', tweetData);
   }
 
 // render the tweets, delete all the msgs, then for each loop add all the tweets
