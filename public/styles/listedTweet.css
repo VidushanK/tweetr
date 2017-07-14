@@ -28,13 +28,13 @@ span.profile{
   font-weight: bold;
   font-size: 2em;
   padding-top: 10px;
-  margin-right: 90px;
+
 }
 
 span.atName{
   float: right;
   padding-top: 23px;
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 p.userMessage{
@@ -51,7 +51,9 @@ footer.tweet-footer{
 header img{
   margin-left:10px;
   height: 80px;
-  width: 80px;
+  width: 90px;
+  border-radius: 10px;
+
 }
 
 .icons{
