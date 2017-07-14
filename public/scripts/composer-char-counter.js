@@ -10,7 +10,9 @@ $(function() {
         'color': 'red'
       });
       $(".errMsg").text("You must enter less than 140 characters!! ")
-    }  else {
+    } else if(textlength === 0){
+      $(".errMsg").text("Enter characters to sumbit tweet!")
+    } else {
       counterVal.css({
         'color' : 'black'
       });
