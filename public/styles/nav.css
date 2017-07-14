@@ -21,5 +21,17 @@ nav {
   vertical-align: top;
   padding-top:20px;
 
-
+}
+#nav-bar button {
+  float:right;
+  height:50px;
+  width:100px;
+  margin-top: 15px;
+  border: solid gray 1px;
+  background: #06ddb9;
+}
+#nav-bar button:hover{
+  background: gray;
+  background: #06ddb9;
+  border: solid black 1px;
 }

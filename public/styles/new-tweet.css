@@ -1,13 +1,15 @@
 .new-tweet {
-background:#eee;
-border-radius: 15px;
-border: solid lightgray 1px;
-margin : 0 auto;
-margin-right: 2em;
-margin-left: 2em;
-width: auto;
-height: 170px;
-padding:10px;
+  background:#eee;
+  border-radius: 15px;
+  border: solid lightgray 1px;
+  margin : 0 auto;
+  margin-right: 2em;
+  margin-left: 2em;
+  width: auto;
+  height: 170px;
+  padding:10px;
+  display:none;
+
 }
 h2 {
   margin: 0 0 1em;

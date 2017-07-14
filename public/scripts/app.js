@@ -57,6 +57,10 @@ $(function() {
       $('.tweets-container').prepend(tweet);
     });
   }
+  // once you click the compose button, it will show new tweet
+  $( "button" ).click(function() {
+    $( ".new-tweet" ).slideToggle( "slow" );
+  });
 
   // use the tweet users information to post a new message
   $( "form" ).on( "submit", function( event ) {
